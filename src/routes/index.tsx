@@ -26,6 +26,7 @@ function Home() {
   const [activeCat, setActiveCat] = useState<string>("all");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(products[0].id);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
   const [minRating, setMinRating] = useState(0);
