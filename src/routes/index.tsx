@@ -266,7 +266,7 @@ function Home() {
           </div>
           <div className="relative mt-10 pt-6 border-t border-white/20 text-sm opacity-80 flex justify-between flex-wrap gap-2">
             <span>© 2026 Pricely. All rights reserved.</span>
-            <span>Built with AI & ❤️</span>
+            
           </div>
         </footer>
       </main>
