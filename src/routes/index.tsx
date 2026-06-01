@@ -205,7 +205,14 @@ function Home() {
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {filtered.map((p) => (
-                <ProductCard key={p.id} product={p} selected={p.id === selectedId} onSelect={() => setSelectedId(p.id)} />
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  selected={p.id === selectedId}
+                  expanded={p.id === expandedId}
+                  onSelect={() => setSelectedId(p.id)}
+                  onToggleExpand={() => setExpandedId((cur) => (cur === p.id ? null : p.id))}
+                />
               ))}
             </div>
             {filtered.length === 0 && (
