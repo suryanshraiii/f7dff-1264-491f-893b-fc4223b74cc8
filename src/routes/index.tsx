@@ -26,6 +26,7 @@ function Home() {
   const [activeCat, setActiveCat] = useState<string>("all");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(products[0].id);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [maxPrice, setMaxPrice] = useState(MAX_PRICE);
   const [minRating, setMinRating] = useState(0);
@@ -204,7 +205,14 @@ function Home() {
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {filtered.map((p) => (
-                <ProductCard key={p.id} product={p} selected={p.id === selectedId} onSelect={() => setSelectedId(p.id)} />
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  selected={p.id === selectedId}
+                  expanded={p.id === expandedId}
+                  onSelect={() => setSelectedId(p.id)}
+                  onToggleExpand={() => setExpandedId((cur) => (cur === p.id ? null : p.id))}
+                />
               ))}
             </div>
             {filtered.length === 0 && (
